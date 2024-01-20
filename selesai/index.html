@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Halaman Login</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+  <!-- fullCalendar -->
+  <link rel="stylesheet" href="plugins/fullcalendar/main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="p-5 text-center bg-body-tertiary rounded-3">
+      <div class="row">
+        <div class="col-6">
+          <svg class="bi mt-4" style="color: var(--bs-indigo);" width="100" height="100"><use xlink:href="#bootstrap"></use></svg>
+          <div class="mx-auto" style="text-align: left;">
+            <h2>Selamat Datang di <strong>SIMPEG NF</strong></h2>
+            <p><b>Sistem Informasi Pegawai (SIMPEG) STT Terpadu Nurul Fikri</b><br>
+              Selamat datang di Sistem Informasi Pegawai (SIMPEG) STT Terpadu Nurul Fikri. Untuk menjaga keamanan data pribadi dan menjalankan fungsionalitas sistem dengan lancar, harapkan setiap pengguna memasukkan informasi login yang valid. 
+            </p>
+          </div>
+        </div>
+        <div class="col-6 mt-4">
+          <div class="card d-inline-flex">
+            <div class="card-body">
+              <!-- form start -->
+              <form class="form text-center d-flex align-items-center justify-content-center p-5" onsubmit="login(event)">
+                <fieldset>
+                  <h3><strong>Silakan Login</strong></h3>
+                  <div class="form-group row">
+                    <label for="username" class="col-form-label">Username</label>
+                    <div class="col-10 row">
+                      <input type="text" class="form-control" id="username" placeholder="Username" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="password" class="col-form-label">Password</label>
+                    <div class="col-10 row">
+                      <input type="password" class="form-control" id="password" placeholder="Password" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck2">
+                      <label class="form-check-label" for="exampleCheck2">Ingat saya?</label>
+                    </div>
+                  </div>
+                  <div>
+                    <button type="submit" class="btn btn-info">Login</button>
+                  </div>
+                  <div class="form-group row mt-2">
+                    <a href="">Lupa Password?</a>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script>
+
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- fullCalendar 2.2.5 -->
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/fullcalendar/main.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard.js"></script>
+  <!-- Page specific script -->
+  <script>
+    const validCredentials = [
+      { username: "ahmad", password: "ahmad123" },
+      { username: "putra857", password: "syarif55" }
+    ];
+
+    function login(event) {
+      event.preventDefault(); // Mencegah perilaku pengiriman formulir default
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Memeriksa apakah username dan password yang diberikan valid
+      const isValidCredentials = validCredentials.some(cred => cred.username === username && cred.password === password);
+
+      if (isValidCredentials) {
+        alert('Login berhasil!');
+        window.location.href = "dashboard.html";
+      } else {
+        alert('Login gagal. Username atau password salah.');
+      }
+    }
+  </script>
+</body>
+</html>
